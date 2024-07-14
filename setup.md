@@ -23,7 +23,7 @@ cd kmonad
 
 # compile KMonad (this will first download GHC and msys2, it takes a while)
 # if the GHC download fails, then you would need to install it yourself\
-# download it from 
+# download it from https://www.haskell.org/ghc/download_ghc_9_4_8.html#windows64
 # extract it, add to PATH env var, might need to reboot for the env var change to be picked up.
 # then allow stack to use it by `stack config set system-ghc --global true`
 stack build
@@ -42,7 +42,7 @@ git clone git@github.com:ryantam626/windows-rice.git /c/src/windows-rice
 
 Copy and paste the following when creating the shortcut.
 ```
-C:\Windows\System32\cmd.exe /k C:\Users\ryant\AppData\Roaming\local\bin\kmonad.exe C:\src\windows-rice\kmonad.kbd --log-level debug
+C:\Windows\System32\cmd.exe /k C:\Users\ryant\AppData\Roaming\local\bin\kmonad.exe C:\src\windows-rice\kmonad.kbd --log-level info
 ```
 
 # Install python
@@ -69,10 +69,7 @@ Get poetry if not already installed, assumes you have a valid python installatio
 curl -sSL https://install.python-poetry.org | python3 -
 ```
 
-You also need to add this to bashrc probably.
-```
-export PATH="$HOME/.poetry/bin:$PATH"
-```
+Add C:\Users\ryant\AppData\Roaming\Python\Scripts to path via system settings, so it can pick up `poetry`.
 
 ## Install and configure window manager
 
@@ -126,21 +123,28 @@ git clone --depth=1 https://github.com/zsh-users/zsh-completions $ZSH_CUSTOM/plu
 git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 ```
 
+# Download the following fonts
+https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+
+
 ## Install neovim
 ```bash
 scoop install neovim	
 ```
 
-
 ## Misc.
-One liner to start tmux fast, to get around window socket issue.
-```bash
-ps | grep tmux || rm /tmp/tmux-$(id -u)/default && tmux
-```
 
-
+# adding sys python scripts
+add C:\Users\ryant\AppData\Roaming\Python\Scripts to path via system settings
 
 need to comment this in in msys2.ini
 MSYS2_PATH_TYPE=inherit
 and add this for zsh shell
 SHELL=/usr/bin/zsh
+
+# TODO
+
+Centralise dotfiles and use some symlink based apporach to enable dotfiles.
