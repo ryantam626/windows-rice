@@ -1,0 +1,30 @@
+1) Terminal multiplexer - tmux, https://github.com/tmux/tmux
+    - need to install msys2 for a bit to use their pacman, can investigate alternative way to get the binaries though.
+     (ref: https://gist.github.com/DeanPDX/acff533cff0cfbda2761d1e62e8cb1a7 and https://news.ycombinator.com/item?id=34318050)
+2) Various tmux plugins
+    - plugin manager - tpm, https://github.com/tmux-plugins/tpm
+    - quickly copying interesting things on terminal - tmux-fingers, https://github.com/Morantron/tmux-fingers
+    - copy to system clipboard - tmux-yank, https://github.com/tmux-plugins/tmux-yank
+    - consistent navigation between vim and tmux - vim-tmux-navigator, https://github.com/christoomey/vim-tmux-navigator
+    - theme to make tmux not look atrocious - nordtheme/tmux, https://github.com/nordtheme/tmux
+3) Fuzzy finder - fzf, https://github.com/junegunn/fzf
+    - Useful in some of my bash oneliners/aliases
+4) "Smarter" `cd` - zoxide, https://github.com/ajeetdsouza/zoxide
+    - Quicker navigation in the terminal
+5) Editor - neovim, https://github.com/neovim/neovim
+    - Tried to use the vim bundled with git bash, it takes time to port my neovim config to vim, particularly when the bundled vim is already partially configured via unknown means, just switching to neovim would be quicker.
+6) Various neovim plugins
+    - Plugin manager - lazy.nvim, https://github.com/folke/lazy.nvim.git
+    - tabstop/shiftwidth detection - tpope/vim-sleuth, https://github.com/tpope/vim-sleuth
+    - theme to make neovim not look atrocious - shaunsingh/nord.nvim, https://github.com/shaunsingh/nord.nvim
+    - status line - nvim-lualine/lualine.nvim, https://github.com/nvim-lualine/lualine.nvim
+    - indentation guide - lukas-reineke/indent-blankline.nvim, https://github.com/lukas-reineke/indent-blankline.nvim
+    - comment helper - numToStr/Comment.nvim, https://github.com/numToStr/Comment.nvim
+7) Shell - zsh, https://www.zsh.org/
+    - I tried to work with bash as a long time zsh user, the many inconsistencies between the two shells are making me navigate the terminal much slower.
+8) Various zsh plugins
+    - plugin manager and framework - oh-my-zsh, https://github.com/ohmyzsh/ohmyzsh/
+        + This is a little bit bloated, but over the years I became accustomed to the defaults this brings, extracting the relevant config out takes time.
+    - syntax highlighting - zsh-users/zsh-syntax-highlighting, https://github.com/zsh-users/zsh-syntax-highlighting
+    - provider of more completion options - zsh-users/zsh-completions, https://github.com/zsh-users/zsh-completions
+    
