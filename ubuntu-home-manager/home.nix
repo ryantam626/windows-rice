@@ -114,7 +114,7 @@ in {
           plugin = tmuxPlugins.tmux-thumbs;
           extraConfig = ''
             set -g @thumbs-key v
-            set -g @thumbs-position off_left
+            set -g @thumbs-position left
             set -g @thumbs-command 'echo -n {} | /mnt/c/Windows/System32/clip.exe'
           '';
         }
