@@ -11,7 +11,6 @@ in {
       git
       htop
       jq
-      neovim
       tmux
       unzip
       wget
@@ -89,6 +88,13 @@ in {
         theme = "robbyrussell";
         plugins = [ "git" "zoxide" ];
       };
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      extraConfig = ''
+        luafile ${./nvim.lua}
+      '';
     };
 
     tmux = {
