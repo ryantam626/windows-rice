@@ -1,5 +1,8 @@
 { lib, pkgs, ... }:
-let username = "rtam";
+let
+  username = "rtam";
+  git-author-name = "Ryan Tam";
+  git-email = "ryantam626@gmail.com";
 in {
   home = {
     packages = with pkgs; [
@@ -36,15 +39,26 @@ in {
 
     command-not-found.enable = false;
 
-    # TODO: Set git up correctly.
     git = {
       enable = true;
-      userEmail = "ryantam626@gmail.com";
-      userName = "Ryan Tam";
+      userEmail = "${git-email}";
+      userName = "${git-author-name}";
       extraConfig = {
         push = {
           default = "current";
           autoSetupRemote = true;
+        };
+        stash = {
+          showPatch = true;
+        };
+        rebase = {
+          autosquash = true;
+        };
+        pull = {
+          rebase = true;
+        };
+        rerere = {
+          enabled = true;
         };
       };
     };
