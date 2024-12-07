@@ -75,7 +75,7 @@ in {
         clc = "git rev-parse HEAD | copy";
         "gc-" = "git checkout -";
         gcn = "git commit --no-verify";
-        gcor = "gco $(grecent | fzf)'";
+        gcor = "gco $(grecent | fzf)";
         gcm = "git checkout $(git_main_branch)";
         grecent =
           "git for-each-ref --sort=-committerdate --count=20 --format='%(refname:short)' refs/heads/";
