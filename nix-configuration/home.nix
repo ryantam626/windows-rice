@@ -17,11 +17,12 @@
     unzip
     wget
     zip
-    zsh
   ];
 
   stable-packages = with pkgs; [
     # Packages that we want to be stable goes here.
+
+    cascadia-code
 
     # rust stuff
     rustup
@@ -32,6 +33,8 @@ in {
   imports = [
     nix-index-database.hmModules.nix-index
   ];
+  
+  fonts.fontconfig.enable = true;
 
   home.stateVersion = "22.11";
 
@@ -56,14 +59,10 @@ in {
     fzf.enable = true;
     fzf.enableZshIntegration = true;
     lsd.enable = true;
-    lsd.enableAliases = true;
+    lsd.enableAliases = false;
     zoxide.enable = true;
-    zoxide.enableFishIntegration = true;
+    zoxide.enableZshIntegration = true;
     zoxide.options = ["--cmd cd"];
-    broot.enable = true;
-    broot.enableFishIntegration = true;
-    direnv.enable = true;
-    direnv.nix-direnv.enable = true;
   
     # TODO: Set git up correctly.
     git = {
@@ -84,7 +83,7 @@ in {
       oh-my-zsh = {
         enable = true;
         theme = "robbyrussell";
-        plugins = [ "git" "zsh-syntax-highlighting" ];
+        plugins = [ "git" "zsh-syntax-highlighting" "zoxide" ];
       };
     };
   };
