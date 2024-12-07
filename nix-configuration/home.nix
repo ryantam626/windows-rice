@@ -83,6 +83,19 @@ in {
       syntaxHighlighting = {
         enable = true;
       };
+      shellAliases = {
+        pbcopy = "/mnt/c/Windows/System32/clip.exe";
+        copy = "/mnt/c/Windows/System32/clip.exe";
+        clc = "git rev-parse HEAD | copy";
+        "gc-" = "git checkout -";
+        gcn = "git commit --no-verify";
+        gcor = "gco $(grecent | fzf)'";
+        gcm = "git checkout $(git_main_branch)";
+        grecent = "git for-each-ref --sort=-committerdate --count=20 --format='%(refname:short)' refs/heads/";
+        gsh = "git show";
+        rbm = "git rebase $(git_main_branch) -i";
+        rt = "gb | grep rt.";
+      };
       oh-my-zsh = {
         enable = true;
         theme = "robbyrussell";
