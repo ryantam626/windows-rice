@@ -95,6 +95,7 @@ in {
         gsh = "git show";
         rbm = "git rebase $(git_main_branch) -i";
         rt = "gb | grep rt.";
+        vim = "nvim";
       };
       oh-my-zsh = {
         enable = true;
