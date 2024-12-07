@@ -113,7 +113,7 @@ in {
       package = pkgs.unstable.tmux;
       keyMode = "vi";
       prefix = "C-a";
-      historyLimit = 100001;
+      historyLimit = 100000;
       plugins = with pkgs; [
         tmuxPlugins.sensible
         tmuxPlugins.nord
