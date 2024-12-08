@@ -35,13 +35,7 @@ cd kmonad
 stack install
 ```
 
-## Making shortcut for program
-
-```powershell
-cmd.exe /k  kmonad.exe C:\sources\dotfiles\kmonad\regular-keyboard.kbd -l info
-```
-
-# Get ssh key from somewhere
+## Get ssh key from somewhere
 
 ssh-keygen or just reuse some key.
 
@@ -50,6 +44,19 @@ mkdir ~/.ssh
 vim ~/.ssh/id_ed25519
 vim ~/.ssh/id_ed25519.pub
 chmod 600 ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
+```
+
+## Clone this repo
+
+```bash
+cd /c/sources
+git clone git@github.com:ryantam626/windows-rice.git
+```
+
+## Making shortcut for program
+
+```powershell
+cmd.exe /k  kmonad.exe C:\sources\windows-rice\windows-dotfiles\kmonad\regular-keyboard.kbd -l info
 ```
 
 # Mado
@@ -65,7 +72,7 @@ Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv
 ```bash
 pyenv update
 pyenv install 3.11.9
-python global 3.11.9
+pyenv global 3.11.9
 ```
 
 ## Install poetry
@@ -102,6 +109,8 @@ Get it from [https://aka.ms/terminal](https://aka.ms/terminal).
 wsl.exe --install -d Ubuntu-24.04
 ```
 
+Reboot afterwards.
+
 # Install Nix on Ubuntu
 
 ```bash
@@ -114,7 +123,7 @@ Then restart WSL shell to pick it up in shell.
 ```bash
 nixconf=~/.config/nix/nix.conf
 mkdir -p $(dirname $nixconf)
-cat "experimental-features = nix-command flakes" > $nixconf
+echo "experimental-features = nix-command flakes" > $nixconf
 ```
 
 ## Install Home Manager
@@ -127,6 +136,15 @@ nix-shell '<home-manager>' -A install
 
 # Use home manager to configure ubuntu
 
+## Clone ssh keys over from windows
+
+```bash
+windows_user_name=ryant
+windows_ssh_dir=/mnt/c/Users/$windows_user_name/.ssh
+cp -r $windows_ssh_dir ~
+sudo chown $USER ~/.ssh/id*
+sudo chown 600 ~/.ssh/id*
+```
 
 ## Clone this repo
 
@@ -147,6 +165,17 @@ home-manager switch --flake .#rtam
 ~/windows-rice/installers/docker.sh
 ~/windows-rice/installers/pyenv.sh
 ```
+
+## Manually switch login shell
+
+home manager cannot manage this for us.
+
+```bash
+command -v zsh | sudo tee -a /etc/shells
+sudo chsh -s "$(command -v zsh)" "${USER}"
+```
+
+Restart shell after.
 
 # Set windows terminal config
 
