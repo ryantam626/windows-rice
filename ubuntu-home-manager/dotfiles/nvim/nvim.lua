@@ -112,6 +112,9 @@ vim.o.timeoutlen = 300
 -- TODO: What is this?
 vim.o.termguicolors = true
 
+-- [[ Spelling ]]
+vim.opt.spelllang = 'en_gb'
+vim.cmd("nnoremap <silent> <leader>ss :setlocal spell! spelllang=en_gb<CR>")
 
 -- [[ Basic Keymaps ]]
 
@@ -148,6 +151,21 @@ vim.cmd('cnoreabbrev wQ wq')
 vim.cmd('cnoreabbrev WQ wq')
 vim.cmd('cnoreabbrev W w')
 vim.cmd('cnoreabbrev Q q')
+
+-- [[ Markdown code block helpers ]]
+vim.cmd('nnoremap <silent> <leader>i /```<CR>V?```<CR>jOky')
+vim.cmd('nnoremap <silent> <leader>k ?```<CR>V?```<CR>jOky')
+vim.cmd('nnoremap <silent> <leader>j /```<CR>V/```<CR>kOjy')
+
+-- [[ Clean highlight on esc ]]
+vim.cmd('nnoremap <silent> <esc> <esc>:noh<return><esc>')
+
+-- [[ Set wrap for git commit ]]
+vim.cmd("au FileType gitcommit setlocal tw=72")
+
+-- [[ Override manual in git rebase file ]]
+vim.cmd("autocmd FileType gitrebase setlocal keywordprg=git\\ show")
+vim.cmd("autocmd TermClose term://*git* lua vim.api.nvim_input(\"<CR>\")")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
