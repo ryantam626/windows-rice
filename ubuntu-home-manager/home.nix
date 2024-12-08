@@ -68,6 +68,9 @@ in {
         rerere = {
           enabled = true;
         };
+        core = {
+          pager = "less -+F";
+        };
       };
     };
 
