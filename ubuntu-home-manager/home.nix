@@ -9,6 +9,7 @@ in {
       cascadia-code
       curl
       git
+      go-task
       htop
       jq
       tmux
@@ -67,6 +68,9 @@ in {
       syntaxHighlighting = { enable = true; };
       initExtraFirst = ''
         source $HOME/.nix-profile/etc/profile.d/nix.sh
+      '';
+      initExtra = ''
+        eval "$(task --completion zsh)"
       '';
       shellAliases = {
         pbcopy = "/mnt/c/Windows/System32/clip.exe";
