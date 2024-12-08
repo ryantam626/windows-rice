@@ -75,6 +75,11 @@ in {
       '';
       initExtra = ''
         eval "$(task --completion zsh)"
+
+        # Edit current line
+        autoload -U edit-command-line
+        zle -N edit-command-line
+        bindkey '^[e' edit-command-line
       '';
       shellAliases = {
         pbcopy = "/mnt/c/Windows/System32/clip.exe";
