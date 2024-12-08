@@ -1,0 +1,21 @@
+" Better search defaults
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+let mapleader = " "
+
+" Escape to clean highlights
+nnoremap <silent> <esc> <esc>:noh<return><esc>
+nnoremap <silent> <leader>ac :%y<CR>
+
+set clipboard^=unnamedplus,unnamed
+
+set highlightedyank
+set surround
+set noideajoin
+
+nnoremap <silent> <leader>i /```<CR>V?```<CR>jOky
+nnoremap <silent> <leader>k ?```<CR>V?```<CR>jOky
+nnoremap <silent> <leader>j /```<CR>V/```<CR>kOjy
