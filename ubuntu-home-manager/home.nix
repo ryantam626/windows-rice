@@ -80,6 +80,12 @@ in {
         autoload -U edit-command-line
         zle -N edit-command-line
         bindkey '^[e' edit-command-line
+
+        # pyenv {{
+        export PYENV_ROOT="$HOME/.pyenv"
+        [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init -)"
+        # }}
       '';
       shellAliases = {
         pbcopy = "/mnt/c/Windows/System32/clip.exe";
