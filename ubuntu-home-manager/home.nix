@@ -26,6 +26,10 @@ in {
     sessionVariables.SHELL = "/home/${username}/.nix-profile/bin/zsh";
 
     stateVersion = "24.11";
+
+    file.".ideavimrc" = {
+      source = "${./dotfiles/idea/.ideavimrc}";
+    };
   };
   programs = {
     home-manager.enable = true;
