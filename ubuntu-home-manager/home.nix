@@ -97,7 +97,7 @@ in {
       enable = true;
       defaultEditor = true;
       extraConfig = ''
-        luafile ${./nvim.lua}
+        luafile ${./dotfiles/nvim/nvim.lua}
       '';
     };
 
