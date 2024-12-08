@@ -1,6 +1,5 @@
 -- One file config for nvim - derived from kickstart.nvim
 
-
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -131,7 +130,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
--- [[ Abbrevation for autofixing wq typos  ]]
+-- [[ Abbreviation for auto-fixing wq typos  ]]
 vim.cmd('cnoreabbrev W! w!')
 vim.cmd('cnoreabbrev Q! q!')
 vim.cmd('cnoreabbrev Wq wq')
@@ -140,7 +139,6 @@ vim.cmd('cnoreabbrev wQ wq')
 vim.cmd('cnoreabbrev WQ wq')
 vim.cmd('cnoreabbrev W w')
 vim.cmd('cnoreabbrev Q q')
-
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
