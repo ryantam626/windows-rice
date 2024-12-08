@@ -180,3 +180,11 @@ Restart shell after.
 # Set windows terminal config
 
 See windows-dotfiles/windows-terminal.json and copy and paste that into terminal config.
+
+# Other manual configuration
+
+See [imgs dir](./imgs).
+
+## Ideavimrc on windows
+
+Copy and paste the `.ideavimrc` from WSL root to windows root.

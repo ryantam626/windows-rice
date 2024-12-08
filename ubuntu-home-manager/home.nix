@@ -30,6 +30,10 @@ in {
     file.".ideavimrc" = {
       source = "${./dotfiles/idea/.ideavimrc}";
     };
+
+    file."bin/dynamic-git.sh" = {
+      source = "${./bin/dynamic-git.sh}";
+    };
   };
   programs = {
     home-manager.enable = true;
@@ -101,6 +105,7 @@ in {
         rbm = "git rebase $(git_main_branch) -i";
         rt = "gb | grep rt.";
         vim = "nvim";
+        git = "~/bin/dynamic-git.sh";
       };
       oh-my-zsh = {
         enable = true;
