@@ -25,7 +25,7 @@ in {
     sessionVariables.EDITOR = "nvim";
     sessionVariables.SHELL = "/home/${username}/.nix-profile/bin/zsh";
 
-    stateVersion = "23.11";
+    stateVersion = "24.11";
   };
   programs = {
     home-manager.enable = true;
@@ -101,7 +101,17 @@ in {
       '';
     };
 
-    tmux = {
+    tmux = let
+      tmux-nord = pkgs.tmuxPlugins.mkTmuxPlugin {
+        pluginName = "nord";
+        version = "0.3.0";
+        src = pkgs.fetchFromGitHub {
+          owner = "nordtheme";
+          repo = "tmux";
+          rev = "v0.3.0";
+          hash = "sha256-s/rimJRGXzwY9zkOp9+2bAF1XCT9FcyZJ1zuHxOBsJM=";
+        };
+      }; in {
       aggressiveResize = true;
       baseIndex = 1;
       clock24 = true;
@@ -112,7 +122,7 @@ in {
       historyLimit = 100000;
       plugins = with pkgs; [
         tmuxPlugins.sensible
-        tmuxPlugins.nord
+        tmux-nord
         {
           plugin = tmuxPlugins.yank;
           extraConfig = ''
