@@ -98,6 +98,12 @@ in {
         # poetry {{
         export PATH="$HOME/.local/bin:$PATH"
         # }}
+
+        # nvm {{
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+        # }}
       '';
       shellAliases = {
         pbcopy = "/mnt/c/Windows/System32/clip.exe";
