@@ -50,3 +50,8 @@ sethandler <C-Y> a:vim
 sethandler <C-[> a:vim
 sethandler <C-\> a:vim
 sethandler <C-]> a:vim
+
+set shell=bash.exe
+set shellcmdflag=-lic
+set shellxquote=
+
