@@ -99,6 +99,10 @@ in {
         export PATH="$HOME/.local/bin:$PATH"
         # }}
 
+        # zig {{
+        export PATH="$HOME/apps/zig-linux-x86_64-0.14.0-dev.3086+b3c63e5de::$PATH"
+        # }}
+
         # nvm {{
         export NVM_DIR="$HOME/.nvm"
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
