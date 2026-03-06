@@ -90,6 +90,8 @@ in {
       initExtra = ''
         eval "$(task --completion zsh)"
 
+        source ${./bin/slop-workspace-utils.sh}
+
         # Edit current line
         autoload -U edit-command-line
         zle -N edit-command-line
@@ -120,6 +122,9 @@ in {
         export BROWSER=wslview
 
         zstyle ':completion:*' completer _expand_alias _complete _ignored
+
+        # Show SLOP indicator in prompt if we're in a SLOP workspace (requires the slop-workspace-utils.sh script above)
+        PROMPT='$(slop_prompt_indicator)%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ ) %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
       '';
       shellAliases = {
         pbcopy = "/mnt/c/Windows/System32/clip.exe";
