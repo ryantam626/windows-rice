@@ -6,6 +6,8 @@ let
 in {
   home = {
     packages = with pkgs; [
+      wslu
+      awscli2
       cascadia-code
       curl
       git
@@ -34,6 +36,10 @@ in {
 
     file."bin/dynamic-git.sh" = {
       source = "${./bin/dynamic-git.sh}";
+    };
+
+    file."bin/copy-commit.sh" = {
+      source = "${./bin/copy-commit.sh}";
     };
   };
   programs = {
@@ -89,14 +95,16 @@ in {
         zle -N edit-command-line
         bindkey '^[e' edit-command-line
 
-        # pyenv {{
-        export PYENV_ROOT="$HOME/.pyenv"
-        [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-        eval "$(pyenv init -)"
+        # cargo {{
+        export PATH="$HOME/.cargo/bin:$PATH"
         # }}
 
-        # poetry {{
+        # uv {{
         export PATH="$HOME/.local/bin:$PATH"
+        # }}
+
+        # pulumi {{
+        export PATH="$HOME/.pulumi/bin:$PATH"
         # }}
 
         # zig {{
@@ -108,6 +116,10 @@ in {
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
         [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
         # }}
+
+        export BROWSER=wslview
+
+        zstyle ':completion:*' completer _expand_alias _complete _ignored
       '';
       shellAliases = {
         pbcopy = "/mnt/c/Windows/System32/clip.exe";
@@ -124,6 +136,7 @@ in {
         rt = "gb | grep rt.";
         vim = "nvim";
         git = "~/bin/dynamic-git.sh";
+        ccp = "~/bin/copy-commit.sh";
       };
       oh-my-zsh = {
         enable = true;
