@@ -20,6 +20,7 @@ in {
       zip
       zsh
       rustup
+      ripgrep
     ];
 
     username = "${username}";
